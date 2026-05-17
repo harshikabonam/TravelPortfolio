@@ -1,0 +1,272 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.site{background:#08090f;color:#f0eee8;font-family:var(--font-sans);border-radius:16px;overflow:hidden}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 36px;border-bottom:0.5px solid rgba(255,255,255,0.07)}
+.logo{font-size:17px;font-weight:500;color:#fff;letter-spacing:-0.3px}
+.logo em{font-style:normal;color:#c9933a}
+.nav-links{display:flex;gap:24px}
+.nav-links a{font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;cursor:pointer}
+.nav-links a:hover{color:#c9933a}
+.hero{padding:72px 36px 56px;text-align:center;border-bottom:0.5px solid rgba(255,255,255,0.06)}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(201,147,58,0.1);border:0.5px solid rgba(201,147,58,0.25);color:#c9933a;font-size:12px;padding:6px 16px;border-radius:999px;margin-bottom:28px;letter-spacing:0.3px}
+.hero-pill-dot{width:6px;height:6px;border-radius:50%;background:#c9933a}
+.hero h1{font-size:42px;font-weight:500;line-height:1.15;color:#fff;margin-bottom:18px;letter-spacing:-0.8px}
+.hero h1 em{font-style:normal;color:#c9933a}
+.hero p{font-size:15px;color:rgba(255,255,255,0.42);max-width:460px;margin:0 auto 36px;line-height:1.75}
+.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-gold{background:#c9933a;color:#1c1000;font-size:14px;font-weight:500;padding:12px 28px;border-radius:10px;border:none;cursor:pointer}
+.btn-ghost{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.75);font-size:14px;padding:12px 28px;border-radius:10px;border:0.5px solid rgba(255,255,255,0.12);cursor:pointer}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:0.5px solid rgba(255,255,255,0.06)}
+.stat{padding:32px 20px;text-align:center;border-right:0.5px solid rgba(255,255,255,0.06)}
+.stat:last-child{border-right:none}
+.stat-num{font-size:34px;font-weight:500;color:#c9933a;letter-spacing:-0.5px;transition:color 0.3s;font-variant-numeric:tabular-nums}
+.stat-label{font-size:12px;color:rgba(255,255,255,0.35);margin-top:6px;letter-spacing:0.2px}
+.guides{padding:48px 36px}
+.sec-eyebrow{font-size:11px;color:rgba(255,255,255,0.3);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.sec-title{font-size:24px;font-weight:500;color:#fff;margin-bottom:6px;letter-spacing:-0.3px}
+.sec-sub{font-size:14px;color:rgba(255,255,255,0.35);margin-bottom:32px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.card{background:#0f1220;border:0.5px solid rgba(255,255,255,0.08);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
+.card:hover{border-color:rgba(201,147,58,0.3)}
+.badge{font-size:11px;font-weight:500;padding:3px 10px;border-radius:999px;width:fit-content;letter-spacing:0.2px}
+.b-red{background:rgba(224,80,60,0.15);color:#e87060;border:0.5px solid rgba(224,80,60,0.2)}
+.b-green{background:rgba(50,190,130,0.12);color:#40d090;border:0.5px solid rgba(50,190,130,0.2)}
+.b-gold{background:rgba(201,147,58,0.14);color:#c9933a;border:0.5px solid rgba(201,147,58,0.22)}
+.b-purple{background:rgba(140,110,230,0.15);color:#b09ae0;border:0.5px solid rgba(140,110,230,0.2)}
+.card-icon{font-size:28px;line-height:1}
+.card-title{font-size:14px;font-weight:500;color:#ede9e0;line-height:1.4}
+.bullets{list-style:none;display:flex;flex-direction:column;gap:6px}
+.bullets li{font-size:12px;color:rgba(255,255,255,0.38);display:flex;align-items:flex-start;gap:7px;line-height:1.5}
+.dot{width:4px;height:4px;border-radius:50%;background:#c9933a;flex-shrink:0;margin-top:5px}
+.card-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:0.5px solid rgba(255,255,255,0.06)}
+.price-wrap{display:flex;align-items:baseline;gap:6px}
+.price{font-size:18px;font-weight:500;color:#c9933a}
+.price-old{font-size:12px;color:rgba(255,255,255,0.2);text-decoration:line-through}
+.get-btn{font-size:12px;color:#c9933a;border:0.5px solid rgba(201,147,58,0.3);padding:7px 14px;border-radius:8px;cursor:pointer;background:rgba(201,147,58,0.06)}
+.get-btn:hover{background:rgba(201,147,58,0.12)}
+.trust{padding:40px 36px;border-top:0.5px solid rgba(255,255,255,0.06);border-bottom:0.5px solid rgba(255,255,255,0.06);display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.trust-text{font-size:14px;color:rgba(255,255,255,0.4);line-height:1.6;flex:1;min-width:200px}
+.trust-text strong{color:rgba(255,255,255,0.7);font-weight:500}
+.trust-ig{display:flex;align-items:center;gap:10px;background:#0f1220;border:0.5px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 20px;cursor:pointer;text-decoration:none}
+.trust-ig:hover{border-color:rgba(201,147,58,0.3)}
+.ig-icon{width:36px;height:36px;border-radius:10px;background:rgba(201,147,58,0.15);display:flex;align-items:center;justify-content:center;font-size:18px}
+.ig-text{display:flex;flex-direction:column;gap:2px}
+.ig-handle{font-size:13px;font-weight:500;color:#ede9e0}
+.ig-sub{font-size:11px;color:rgba(255,255,255,0.35)}
+.faq{padding:48px 36px}
+.faq-header{font-size:22px;font-weight:500;color:#fff;margin-bottom:28px;letter-spacing:-0.3px}
+.faq-item{border-bottom:0.5px solid rgba(255,255,255,0.06);padding:18px 0}
+.faq-q{font-size:14px;color:rgba(255,255,255,0.7);display:flex;justify-content:space-between;align-items:center;gap:16px;cursor:pointer}
+.faq-q i{color:rgba(255,255,255,0.25);font-size:18px;flex-shrink:0}
+.faq-a{font-size:13px;color:rgba(255,255,255,0.38);line-height:1.75;margin-top:12px;padding-right:32px}
+.footer{background:#06070d;padding:28px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;border-top:0.5px solid rgba(255,255,255,0.06)}
+.footer-brand{font-size:14px;font-weight:500;color:rgba(255,255,255,0.5)}
+.footer-brand em{font-style:normal;color:#c9933a}
+.flinks{display:flex;gap:22px}
+.flinks a{font-size:12px;color:rgba(255,255,255,0.25);text-decoration:none;cursor:pointer}
+.flinks a:hover{color:#c9933a}
+.fcopy{font-size:11px;color:rgba(255,255,255,0.15);width:100%}
+</style>
+
+<div class="site">
+  <nav class="nav">
+    <div class="logo">Harshika <em>Bonam</em></div>
+    <div class="nav-links">
+      <a>Guides</a>
+      <a onclick="openLink('https://www.instagram.com/harshika_bonam/')">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-pill"><div class="hero-pill-dot"></div>Real trips. Real stories. Real savings.</div>
+    <h1>Plan Dream Trips.<br><em>Spend Smart.</em> Stress Zero.</h1>
+    <p>Detailed destination guides with day-by-day itineraries, budget breakdowns & insider tips — from Harshika's actual travels.</p>
+    <div class="btns">
+      <button class="btn-gold">Explore all guides</button>
+      <button class="btn-ghost">Get Japan guide</button>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num" id="s1">0</div>
+      <div class="stat-label">Travelers helped</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="s2">0</div>
+      <div class="stat-label">Countries covered</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="s3">₹0</div>
+      <div class="stat-label">Avg saved per trip</div>
+    </div>
+  </div>
+
+  <section class="guides">
+    <div class="sec-eyebrow">Destination guides</div>
+    <div class="sec-title">Choose your next adventure</div>
+    <div class="sec-sub">Built from real trips — not generic research. Every route, budget & tip is tested.</div>
+    <div class="grid">
+      <div class="card">
+        <div class="badge b-red">🔥 Best seller</div>
+        <div class="card-icon">🌸</div>
+        <div class="card-title">Japan: Culture, Temples & Cherry Blossoms</div>
+        <ul class="bullets">
+          <li><div class="dot"></div>Flexible 7–16 day routes</li>
+          <li><div class="dot"></div>Smart value-first budget</li>
+          <li><div class="dot"></div>Remote Japan unlocked</li>
+        </ul>
+        <div class="card-foot">
+          <div class="price-wrap"><span class="price">₹799</span><span class="price-old">₹1299</span></div>
+          <button class="get-btn">Get guide</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="badge b-green">🚀 Just launched</div>
+        <div class="card-icon">🌌</div>
+        <div class="card-title">Finland: Northern Lights & Arctic Huskies</div>
+        <ul class="bullets">
+          <li><div class="dot"></div>Maximize aurora chances</li>
+          <li><div class="dot"></div>Flexible 7–10 day routes</li>
+          <li><div class="dot"></div>Arctic bucket-list picks</li>
+        </ul>
+        <div class="card-foot">
+          <div class="price-wrap"><span class="price">₹799</span><span class="price-old">₹1299</span></div>
+          <button class="get-btn">Get guide</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="badge b-gold">💰 Budget pick</div>
+        <div class="card-icon">🌊</div>
+        <div class="card-title">Laos: Offbeat Gems & Jungle Adventures</div>
+        <ul class="bullets">
+          <li><div class="dot"></div>Flexible 5–10 day routes</li>
+          <li><div class="dot"></div>Big experiences, low spend</li>
+          <li><div class="dot"></div>Hidden waterfall trails</li>
+        </ul>
+        <div class="card-foot">
+          <div class="price-wrap"><span class="price">₹649</span><span class="price-old">₹999</span></div>
+          <button class="get-btn">Get guide</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="badge b-purple">🏆 Highest savings</div>
+        <div class="card-icon">🌋</div>
+        <div class="card-title">Iceland: Fire, Ice & Epic Landscapes</div>
+        <ul class="bullets">
+          <li><div class="dot"></div>Customizable 7–16 day routes</li>
+          <li><div class="dot"></div>Hidden gems plotted</li>
+          <li><div class="dot"></div>Optimal spend strategy</li>
+        </ul>
+        <div class="card-foot">
+          <div class="price-wrap"><span class="price">₹799</span><span class="price-old">₹1299</span></div>
+          <button class="get-btn">Get guide</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="badge b-green">✈️ First-timer friendly</div>
+        <div class="card-icon">🇻🇳</div>
+        <div class="card-title">Vietnam: Peaks, Pagodas & Lantern Nights</div>
+        <ul class="bullets">
+          <li><div class="dot"></div>Flexible 5–12 day itineraries</li>
+          <li><div class="dot"></div>Epic experiences, local prices</li>
+          <li><div class="dot"></div>Hidden gems clearly mapped</li>
+        </ul>
+        <div class="card-foot">
+          <div class="price-wrap"><span class="price">₹649</span><span class="price-old">₹999</span></div>
+          <button class="get-btn">Get guide</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="badge b-gold">🧾 Visa toolkit</div>
+        <div class="card-icon">🛂</div>
+        <div class="card-title">Schengen Visa Approval Toolkit 2026</div>
+        <ul class="bullets">
+          <li><div class="dot"></div>Proven document templates</li>
+          <li><div class="dot"></div>Zero-guesswork checklist</li>
+          <li><div class="dot"></div>Approval rate hacks</li>
+        </ul>
+        <div class="card-foot">
+          <div class="price-wrap"><span class="price">₹399</span><span class="price-old">₹699</span></div>
+          <button class="get-btn">Get toolkit</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust">
+    <div class="trust-text">Still unsure which guide fits your trip?<br><strong>Message Harshika on Instagram</strong> — she'll help you choose the right one before you buy.</div>
+    <a class="trust-ig" onclick="openLink('https://www.instagram.com/harshika_bonam/')">
+      <div class="ig-icon">📸</div>
+      <div class="ig-text">
+        <div class="ig-handle">@harshika_bonam</div>
+        <div class="ig-sub">Message on Instagram</div>
+      </div>
+    </a>
+  </div>
+
+  <section class="faq">
+    <div class="faq-header">Frequently asked questions</div>
+    <div class="faq-item">
+      <div class="faq-q">Are these suitable for first-time international travelers? <i class="ti ti-plus" aria-hidden="true"></i></div>
+      <div class="faq-a">Yes — each guide walks you step-by-step from choosing accommodation to realistic budgeting. Even if it's your first international trip, you'll have a clear roadmap.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How will this guide actually help me? <i class="ti ti-plus" aria-hidden="true"></i></div>
+      <div class="faq-a">Built from Harshika's real trips — not generic research. You get optimized day-by-day routes, honest budget breakdowns, accommodation insights, and costly mistakes to avoid.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do I receive the guide after purchase? <i class="ti ti-plus" aria-hidden="true"></i></div>
+      <div class="faq-a">Delivered instantly to your email. If you don't see it within a few minutes, check your spam or promotions folder.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do you offer refunds? <i class="ti ti-plus" aria-hidden="true"></i></div>
+      <div class="faq-a">Due to the digital nature of the product, purchases are non-refundable. DM on Instagram before buying if you're unsure — happy to help.</div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div class="footer-brand">Harshika <em>Bonam</em> — Travel Guides</div>
+    <div class="flinks">
+      <a>Terms</a>
+      <a>Privacy</a>
+      <a onclick="openLink('https://www.instagram.com/harshika_bonam/')">Contact</a>
+    </div>
+    <div class="fcopy">© 2026 Harshika Bonam. All rights reserved.</div>
+  </div>
+</div>
+
+<script>
+function animateCounter(el, target, prefix, suffix, duration) {
+  const startTime = performance.now();
+  const easeOut = t => 1 - Math.pow(1 - t, 3);
+  function step(now) {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = easeOut(progress);
+    const current = Math.round(eased * target);
+    el.textContent = prefix + (current >= 1000 ? (current / 1000).toFixed(current % 1000 === 0 ? 0 : 0) + 'K' : current) + suffix;
+    if (progress < 1) requestAnimationFrame(step);
+    else el.textContent = prefix + (target >= 1000 ? (target / 1000) + 'K' : target) + suffix;
+  }
+  requestAnimationFrame(step);
+}
+
+const stats = document.querySelector('.stats');
+let triggered = false;
+
+function checkVisible() {
+  if (triggered) return;
+  const rect = stats.getBoundingClientRect();
+  if (rect.top < window.innerHeight - 40) {
+    triggered = true;
+    setTimeout(() => animateCounter(document.getElementById('s1'), 40000, '', '+', 1800), 0);
+    setTimeout(() => animateCounter(document.getElementById('s2'), 15, '', '+', 1400), 200);
+    setTimeout(() => animateCounter(document.getElementById('s3'), 40000, '₹', '+', 1800), 400);
+  }
+}
+
+window.addEventListener('scroll', checkVisible, {passive: true});
+setTimeout(checkVisible, 300);
+</script>
